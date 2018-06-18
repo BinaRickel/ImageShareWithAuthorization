@@ -1,0 +1,28 @@
+﻿@using ImageUpload.Models
+@model IndexViewModel
+
+<div class="row">
+    <div class="col-md-5 col-md-offset-4 well">
+        @if (Model.IsAuthenticated)
+        {
+            <h3>Welcome @Model.User.Name</h3>
+        }
+        else
+        {
+        <h4><a href="/Home/CreateAccount"><span class="glyphicon glyphicon-user"></span> Create an account</a></h4>
+
+        <h4><a href="/Home/Login"><span class="glyphicon glyphicon-log-in"></span> Log in to your account</a></h4>
+        }
+        @if (Model.IsAuthenticated)
+        {
+            <h4><a href="/Home/UploadImage"><span class="glyphicon glyphicon-camera"></span> Upload images</a></h4>
+        }
+        <h4><a href="/Home/ViewAllImages"><span class="glyphicon glyphicon-picture"></span> View all images</a></h4>
+        @if (Model.IsAuthenticated)
+        {
+            <h4><a href="/Home/MyAccount"><span class="glyphicon glyphicon-folder-open"></span> My account</a></h4>
+
+            <h4><a href="/Home/Logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></h4>
+        }
+    </div>
+</div>
